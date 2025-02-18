@@ -33,6 +33,9 @@ composer --version
   
 Résultat si Composer est installé :  
   
-  !
+![Image n°3](images/3.png)  
 
-[Image n°3](images/3.png)
+-----------------------------------------------------------------------------------------------------------------------------------------------
+# Etape 2 : Créer un dossier de projet :  
+  
+- 

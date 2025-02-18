@@ -1,0 +1,13 @@
+services:
+
+  app:
+    image: php:8.2-fpm
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: symfony_app
+    working_dir: /var/www/html
+    volumes: 
+      - ./app/var/www/html
+    networks:
+      - symfony_network
