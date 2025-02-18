@@ -54,7 +54,7 @@ Création du dossier UNIT_SYMFONY :
 
 ![Image n°5](image/5.png)  
 
-- **2 - Explication du fichier :**  
+- **2 - Explication du fichier docker-compose.yml :**  
   
 Ce fichier définit plusieurs services (conteneurs) qui fonctionneront ensemble pour exécuter une application Symfony avec une base de données MySQL et des outils d'administration.  
 .  
@@ -271,3 +271,37 @@ Crée un volume nommé db_data pour stocker les données MySQL de façon persist
 Avec ces fonctionnalités, cette application Symfony fonctionne dans un environnement isolé et répliquable avec Docker.  
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
+
+- **3 - Créer un fichier de configuration Nginx :**  
+  
+![Image n°6](image/6.png)  
+  
+- **4 -Explication du fichier default.conf (placé dans le dossier nginx) :**  
+
+Ce fichier configure Nginx pour servir une application Symfony :  
+.  
+.  
+.  
+- Bloc principal du serveur :  
+```
+server {
+    listen 80;
+    server_name localhost;
+    root /var/www/html/public;
+
+    index index.php index.html;
+```
+listen 80; : Ce serveur écoute sur le port 80 (port HTTP par défaut).  
+server_name localhost; : Définit le nom du serveur, ici localhost. Cela signifie que ce serveur Nginx servira les requêtes envoyées à localhost.  
+root /var/www/html/public; : Définit le répertoire racine du site, où se trouvent les fichiers du projet Symfony (dossier public/).  
+index index.php index.html; : Définit les fichiers par défaut à servir. Si un fichier index.php ou index.html est présent dans le répertoire demandé, il sera affiché automatiquement.  
+.  
+.  
+.  
+- Gestion des URLs (Routes Symfony) :  
+```
+location / {
+    try_files $uri /index.php$is_args$args;
+}
+```
+
