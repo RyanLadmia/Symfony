@@ -135,5 +135,23 @@ Connecte le conteneur au réseau symfony_network.
 .  
 - Le service database crée une base de données MySQL 8.  
 ```
-
+database:
+    image: mysql:8.0
 ``` 
+Utilise l’image officielle MySQL 8.  
+```
+container_name: symfony_db
+```
+Nom du conteneur : symfony_db.  
+```
+environment:
+    PMA_HOST: symfony_db
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: symfony
+    MYSQL_USER: symfony
+    MYSQL_PASSWORD: symfony
+```
+Définit les variables d’environnement pour configurer MySQL :  
+    MYSQL_ROOT_PASSWORD=root → Mot de passe de l’utilisateur root.  
+    MYSQL_DATABASE=symfony → Base de données créée automatiquement.  
+    MYSQL_USER=symfony & MYSQL_PASSWORD=symfony → Utilisateur Symfony pour la base de données.  
