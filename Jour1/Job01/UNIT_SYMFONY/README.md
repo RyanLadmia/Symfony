@@ -22,7 +22,7 @@ docker-compose --version
 Résultat sit Docker compose est installé :  
   
 ![Image n°2](image/2.png)  
-  
+
 -----------------------------------------------------------------------------------------------------------------------------------------------
 - **Installer Composer :**  
   
@@ -39,14 +39,14 @@ composer sefl-upgrade
 Résultat si Composer est installé :  
   
 ![Image n°3](image/3.png)  
-
+  
 -----------------------------------------------------------------------------------------------------------------------------------------------
 # Etape 2 : Créer un dossier de projet :  
   
 Création du dossier UNIT_SYMFONY :  
   
 ![Image n°4](image/4.png)  
-
+  
 -----------------------------------------------------------------------------------------------------------------------------------------------
 # Etape 3 : Préparer le fichier docker-compose.yml :  
   
@@ -272,7 +272,7 @@ Crée un volume nommé db_data pour stocker les données MySQL de façon persist
 .  
 
 Avec ces fonctionnalités, cette application Symfony fonctionne dans un environnement isolé et répliquable avec Docker.  
-
+  
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
 - **3 - Créer un fichier de configuration Nginx :**  
@@ -286,7 +286,7 @@ Ce fichier configure Nginx pour servir une application Symfony :
 .  
 .  
 
-- Bloc principal du serveur :  
+- **Bloc principal du serveur :**  
 ```
 server {
     listen 80;
@@ -306,7 +306,7 @@ server {
 .  
 . 
 
-- Gestion des URLs (Routes Symfony) :  
+- **Gestion des URLs (Routes Symfony) :**  
 ```
 location / {
     try_files $uri /index.php$is_args$args;
@@ -314,12 +314,68 @@ location / {
 ```
 → location / {} : Cette directive gère toutes les requêtes à la racine / du site.  
 
-→ try_files $uri /index.php$is_args$args :   
+→ try_files $uri /index.php$is_args$args; :   
 
-→→→→→→ $uri → Vérifie si l'URL demandée correspond à un fichier existant.  
+|__→→→→→→ $uri → Vérifie si l'URL demandée correspond à un fichier existant.  
 
-→→→→→→ /index.php$is_args$args → Si aucun fichier correspondant n'est trouvé, la requête est envoyée à index.php avec les arguments éventuels ($is_args$args).  
+|__→→→→→→ /index.php$is_args$args → Si aucun fichier correspondant n'est trouvé, la requête est envoyée à index.php avec les arguments éventuels ($is_args$args).  
 
-→→→→→→ C'est un comportement typique pour Symfony : toutes les requêtes passent par index.php, qui gère le routage de l’application.  
+|__→→→→→→ C'est un comportement typique pour Symfony : toutes les requêtes passent par index.php, qui gère le routage de l’application.  
+.  
+.  
+.  
+
+- **Gestion des fichiers PHP :**  
+```
+location ~ \.php$ {
+    include fastcgi_params;
+    fastcgi_pass app:9000;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+}
+```
+→ location ~ \.php$ {} : Cette règle s'applique à tous les fichiers PHP.  
+  
+→ include fastcgi_params; : Charge les paramètres FastCGI nécessaires pour exécuter du PHP.  
+  
+→ fastcgi_pass app:9000; :  
+  
+|__→→→→→ Indique que les requêtes PHP doivent être envoyées au conteneur nommé app (défini dans docker-compose.yml).  
+|__→→→→→ Le port 9000 est celui utilisé par php-fpm pour exécuter les scripts PHP.  
+  
+→ fastcgi_index index.php; : Définit index.php comme fichier d'entrée pour les requêtes PHP.  
+  
+→ fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;  
+  
+|__→→→→→ Définit le chemin absolu du fichier PHP à exécuter.  
+|__→→→→→ $document_root est la valeur du root défini (/var/www/html/public).  
+|__→→→→→ $fastcgi_script_name correspond au fichier PHP demandé.  
+.  
+.  
+.  
+  
+- **Sécurité (Protectio des fichiers .htaccess) :**  
+```
+    location ~ /\.ht {
+        deny all;
+    }
+}
+```
+→ location ~ /\.ht {} : Cette directive s’applique aux fichiers commençant par .ht (comme .htaccess).  
+→ deny all; : Interdit l’accès à ces fichiers pour des raisons de sécurité (ils sont normalement utilisés avec Apache et ne doivent pas être exposés via Nginx).  
+  
+- **Résumé :**  
+Ce fichier default.conf configure Nginx pour servir une application Symfony :  
+→ Il redirige toutes les requêtes vers index.php, essentiel pour Symfony.  
+→ Il utilise php-fpm via le service app pour exécuter les fichiers PHP.  
+→ Il protège les fichiers .htaccess contre l’accès public.  
+Il fonctionne avec ton docker-compose.yml, où :  
+- app exécute php-fpm.  
+- webserver (Nginx) communique avec app pour exécuter les fichiers PHP.  
+- database stocke les données de l’application.  
+  
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
