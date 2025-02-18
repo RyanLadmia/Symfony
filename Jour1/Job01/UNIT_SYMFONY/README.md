@@ -166,7 +166,7 @@ volumes:
     - db_data:/var/lib/mysql
 ```
 Monte un volume db_data pour stocker les bases de données et éviter de perdre les données lors du redémarrage du conteneur.  
-````
+```
 networks:
     - symfony_network
 ```
