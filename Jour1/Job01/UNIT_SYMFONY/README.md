@@ -316,11 +316,11 @@ location / {
 
 → try_files $uri /index.php$is_args$args; :   
 
-..........|__→→→→→→ $uri → Vérifie si l'URL demandée correspond à un fichier existant.  
+|__→→→→→→ $uri → Vérifie si l'URL demandée correspond à un fichier existant.  
 
-...........|__→→→→→→ /index.php$is_args$args → Si aucun fichier correspondant n'est trouvé, la requête est envoyée à index.php avec les arguments éventuels ($is_args$args).  
+|__→→→→→→ /index.php$is_args$args → Si aucun fichier correspondant n'est trouvé, la requête est envoyée à index.php avec les arguments éventuels ($is_args$args).  
 
-..........|__→→→→→→ C'est un comportement typique pour Symfony : toutes les requêtes passent par index.php, qui gère le routage de l’application.  
+|__→→→→→→ C'est un comportement typique pour Symfony : toutes les requêtes passent par index.php, qui gère le routage de l’application.  
 .  
 .  
 .  
@@ -340,16 +340,16 @@ location ~ \.php$ {
   
 → fastcgi_pass app:9000; :  
   
-..........|__→→→→→ Indique que les requêtes PHP doivent être envoyées au conteneur nommé app (défini dans docker-compose.yml).  
-..........|__→→→→→ Le port 9000 est celui utilisé par php-fpm pour exécuter les scripts PHP.  
+|__→→→→→ Indique que les requêtes PHP doivent être envoyées au conteneur nommé app (défini dans docker-compose.yml).  
+|__→→→→→ Le port 9000 est celui utilisé par php-fpm pour exécuter les scripts PHP.  
   
 → fastcgi_index index.php; : Définit index.php comme fichier d'entrée pour les requêtes PHP.  
   
 → fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;  
   
-..........|__→→→→→ Définit le chemin absolu du fichier PHP à exécuter.  
-..........|__→→→→→ $document_root est la valeur du root défini (/var/www/html/public).  
-..........|__→→→→→ $fastcgi_script_name correspond au fichier PHP demandé.  
+|__→→→→→ Définit le chemin absolu du fichier PHP à exécuter.  
+|__→→→→→ $document_root est la valeur du root défini (/var/www/html/public).  
+|__→→→→→ $fastcgi_script_name correspond au fichier PHP demandé.  
 .  
 .  
 .  
