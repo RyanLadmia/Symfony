@@ -133,6 +133,7 @@ Connecte le conteneur au réseau symfony_network.
 .  
 .  
 .  
+
 - Le service database crée une base de données MySQL 8.  
 ```
 database:
@@ -155,3 +156,116 @@ Définit les variables d’environnement pour configurer MySQL :
     MYSQL_ROOT_PASSWORD=root → Mot de passe de l’utilisateur root.  
     MYSQL_DATABASE=symfony → Base de données créée automatiquement.  
     MYSQL_USER=symfony & MYSQL_PASSWORD=symfony → Utilisateur Symfony pour la base de données.  
+```
+ports:
+    - "3306:3306"
+```
+Mappe le port 3306 du conteneur sur 3306 de la machine hôte, permettant d’accéder à MySQL depuis l’extérieur (localhost:3306).  
+```
+volumes:
+    - db_data:/var/lib/mysql
+```
+Monte un volume db_data pour stocker les bases de données et éviter de perdre les données lors du redémarrage du conteneur.  
+````
+networks:
+    - symfony_network
+```
+Connecte le conteneur MySQL au réseau symfony_network.  
+.  
+.  
+.  
+
+- Le service adminer (Interface Web pour MySQL) ajoute une interface graphique pour gérer la base de données via un navigateur.  
+```
+adminer:
+    image: adminer
+```
+Utilise l’image officielle Adminer (alternative légère à PHPMyAdmin).  
+```
+container_name: symfony_adminer
+```
+Nom du conteneur : symfony_adminer.  
+```
+restart: always
+```
+S’assure que le conteneur redémarre automatiquement s’il plante.  
+```
+ports:
+    - "8081:8080"
+```
+Mappe le port 8080 du conteneur (port par défaut d’Adminer) sur le port 8081 de la machine hôte → Accessible via http://localhost:8081.  
+````
+depends_on:
+    - database
+```
+Attendra que le conteneur MySQL (database) soit prêt avant de démarrer.  
+```
+networks:
+    - symfony_network
+```
+Connecte Adminer au réseau symfony_network.  
+.  
+.  
+.  
+
+- Le service phpmyadmin ajoute une autre interface web pour MySQL, en plus d’Adminer.  
+```
+phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+```
+Utilise l’image officielle phpMyAdmin.  
+```
+container_name: symfony_phpmyadmin
+```
+Nom du conteneur : symfony_phpmyadmin.  
+```
+restart: always
+```
+Redémarre automatiquement en cas de plantage.  
+```
+port:
+    - "8082:80"
+```
+Mappe le port 80 du conteneur sur le port 8082 de l’hôte → Accessible via http://localhost:8082.  
+```
+environment:
+    PMA_HOST: symfony_db
+    MYSQL_ROOT_PASSWORD: root
+```
+Définit les variables :
+
+    1 : PMA_HOST=symfony_db → Se connecte automatiquement à symfony_db.  
+    2 : MYSQL_ROOT_PASSWORD=root → Mot de passe root de MySQL.  
+```
+depends_on:
+    - database
+```
+Démarrera après la base de données.  
+```
+networks:
+    - symfony_network
+```
+Connecté au réseau symfony_network.  
+.  
+.  
+.  
+- Ce bloc définit le réseau :  
+```
+networks:
+  symfony_network:
+    driver: bridge
+```
+Crée un réseau bridge (symfony_network), permettant la communication entre les conteneurs sans exposer leurs ports publiquement.  
+.  
+.  
+.  
+- Ce bloc définit le volumes :
+```
+volumes:
+  db_data:
+```
+Crée un volume nommé db_data pour stocker les données MySQL de façon persistante, même après l’arrêt des conteneurs.  
+.  
+.  
+.  
+Avec ces fonctionnalités, cette application Symfony fonctionne dans un environnement isolé et répliquable avec Docker.
