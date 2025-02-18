@@ -50,10 +50,10 @@ Création du dossier UNIT_SYMFONY :
 -----------------------------------------------------------------------------------------------------------------------------------------------
 # Etape 3 : Préparer le fichier docker-compose.yml :  
   
-- 1 - Création du fichier :  
+- 1 - Création du fichier  à la racine du projet :  
 
 ![Image n°5](image/5.png)  
 
-- 2 - Explication du fichier à la racine du projet :  
+- 2 - Explication du fichier :  
 
   
