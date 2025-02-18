@@ -1,6 +1,6 @@
 # **Symphony Les Bases :**
 
-Ce projet a pour but de fournir des informations sur les bases du fonctionnement de Symphony.
+Ce projet a pour but de fournir des informations sur les bases du fonctionnement de Symphony en l'utilisant avec Docker.
 
 ## Auteur :
 
