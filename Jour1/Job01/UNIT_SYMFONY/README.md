@@ -249,6 +249,7 @@ Connecté au réseau symfony_network.
 .  
 .  
 .  
+
 - **Ce bloc définit le réseau :**  
 ```
 networks:
@@ -259,6 +260,7 @@ Crée un réseau bridge (symfony_network), permettant la communication entre les
 .  
 .  
 .  
+
 - **Ce bloc définit le volumes :**
 ```
 volumes:
@@ -268,6 +270,7 @@ Crée un volume nommé db_data pour stocker les données MySQL de façon persist
 .  
 .  
 .  
+
 Avec ces fonctionnalités, cette application Symfony fonctionne dans un environnement isolé et répliquable avec Docker.  
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
@@ -282,6 +285,7 @@ Ce fichier configure Nginx pour servir une application Symfony :
 .  
 .  
 .  
+
 - Bloc principal du serveur :  
 ```
 server {
@@ -300,7 +304,8 @@ server {
 → index index.php index.html; : Définit les fichiers par défaut à servir. Si un fichier index.php ou index.html est présent dans le répertoire demandé, il sera affiché automatiquement.  
 .  
 .  
-.  
+. 
+
 - Gestion des URLs (Routes Symfony) :  
 ```
 location / {
@@ -309,12 +314,12 @@ location / {
 ```
 → location / {} : Cette directive gère toutes les requêtes à la racine / du site.  
 
-→ try_files $uri /index.php$is_args$args;  
+→ try_files $uri /index.php$is_args$args :   
 
-    → $uri → Vérifie si l'URL demandée correspond à un fichier existant.  
+→→→→→→ $uri → Vérifie si l'URL demandée correspond à un fichier existant.  
 
-    → /index.php$is_args$args → Si aucun fichier correspondant n'est trouvé, la requête est envoyée à index.php avec les arguments éventuels ($is_args$args).  
+→→→→→→ /index.php$is_args$args → Si aucun fichier correspondant n'est trouvé, la requête est envoyée à index.php avec les arguments éventuels ($is_args$args).  
 
-    → C'est un comportement typique pour Symfony : toutes les requêtes passent par index.php, qui gère le routage de l’application.  
-    
+→→→→→→ C'est un comportement typique pour Symfony : toutes les requêtes passent par index.php, qui gère le routage de l’application.  
+
 
