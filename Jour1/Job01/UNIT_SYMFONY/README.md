@@ -269,4 +269,5 @@ Crée un volume nommé db_data pour stocker les données MySQL de façon persist
 .  
 .  
 Avec ces fonctionnalités, cette application Symfony fonctionne dans un environnement isolé et répliquable avec Docker.  
+
 -----------------------------------------------------------------------------------------------------------------------------------------------
