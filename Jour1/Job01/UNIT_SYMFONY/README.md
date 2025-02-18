@@ -26,7 +26,7 @@ Résultat sit Docker compose est installé :
 -----------------------------------------------------------------------------------------------------------------------------------------------
 - **Installer Composer :**  
   
-Puisque Symphony utilise Composer pour fonctionner, il faut vérifier qu'il soit bien installé et configuré :  
+Puisque Symfony utilise Composer pour fonctionner, il faut vérifier qu'il soit bien installé et configuré :  
 ```
 composer --version
 ```  
@@ -38,4 +38,10 @@ Résultat si Composer est installé :
 -----------------------------------------------------------------------------------------------------------------------------------------------
 # Etape 2 : Créer un dossier de projet :  
   
-- 
+Création du dossier UNIT_SYMFONY :  
+  
+![Image n°4](images/4.png)  
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+# Etape 3 : Préparer le fichier docker-compose.yml :  
+  

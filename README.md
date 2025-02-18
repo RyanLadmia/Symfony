@@ -1,6 +1,6 @@
-# **Symphony Les Bases :**
+# **Symfony Les Bases :**
 
-Ce projet a pour but de fournir des informations sur les bases du fonctionnement de Symphony en l'utilisant avec Docker.
+Ce projet a pour but de fournir des informations sur les bases du fonctionnement de Symfony en l'utilisant avec Docker.
 
 ## Auteur :
 
@@ -16,4 +16,4 @@ J'envisage de m'orienter vers la conception d'applications puis vers la cybersé
 
 ## A Propos de ce projet :  
 
-Avec ce projet, j'ai découvert les bases de l'utilisation de Docker.
+Avec ce projet, j'ai découvert les bases de l'utilisation de Symfony.
