@@ -13,7 +13,8 @@ Résultat si docker est installé :
     
 ![Image n°1](image/1.png)  
   
------------------------------------------------------------------------------------------------------------------------------------------------Pour vérifier que Docker Compose est installé et configurer, ouvrir un terminal et entrer :
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Pour vérifier que Docker Compose est installé et configurer, ouvrir un terminal et entrer :
 ```
 docker-compose --version
 ```  
