@@ -30,18 +30,30 @@ Puisque Symfony utilise Composer pour fonctionner, il faut vérifier qu'il soit 
 ```
 composer --version
 ```  
+
+et pour le mettre a jour sous Windows :  
+```
+composer sefl-upgrade
+```
   
 Résultat si Composer est installé :  
   
-![Image n°3](images/3.png)  
+![Image n°3](image/3.png)  
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 # Etape 2 : Créer un dossier de projet :  
   
 Création du dossier UNIT_SYMFONY :  
   
-![Image n°4](images/4.png)  
+![Image n°4](image/4.png)  
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 # Etape 3 : Préparer le fichier docker-compose.yml :  
+  
+- 1 Création du fichier :  
+
+![Image n°5](image/5.png)  
+
+- 2 Explication du fichier :  
+
   
