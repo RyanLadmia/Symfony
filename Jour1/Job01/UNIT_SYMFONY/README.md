@@ -91,7 +91,7 @@ Monte le dossier local ./app dans le conteneur à /var/www/html, ce qui permet d
 networks:
     - symfony_network
 ```
-Connecte le service au réseau Docker symfony_network, permettant aux autres services de communiquer entre eux. 
+Connecte le service au réseau Docker symfony_network, permettant aux autres services de communiquer entre eux.   
 .  
 .  
 .  
