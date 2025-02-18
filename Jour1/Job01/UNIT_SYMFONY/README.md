@@ -61,7 +61,7 @@ Ce fichier définit plusieurs services (conteneurs) qui fonctionneront ensemble 
 .  
 .  
 
-- Le service app exécute l'application PHP avec PHP-FPM (FastCGI Process Manager).  
+- **Le service app exécute l'application PHP avec PHP-FPM (FastCGI Process Manager).**  
 ```
 app:
     image: php:8.2-fpm
@@ -96,7 +96,7 @@ Connecte le service au réseau Docker symfony_network, permettant aux autres ser
 .  
 .  
 
-- Le service webserver exécute un serveur Nginx pour exposer l’application PHP sur un navigateur.  
+- **Le service webserver exécute un serveur Nginx pour exposer l’application PHP sur un navigateur.**  
 ```
 webserver:
     image: nginx:stable
@@ -134,7 +134,7 @@ Connecte le conteneur au réseau symfony_network.
 .  
 .  
 
-- Le service database crée une base de données MySQL 8.  
+- **Le service database crée une base de données MySQL 8.**  
 ```
 database:
     image: mysql:8.0
@@ -175,7 +175,7 @@ Connecte le conteneur MySQL au réseau symfony_network.
 .  
 .  
 
-- Le service adminer (Interface Web pour MySQL) ajoute une interface graphique pour gérer la base de données via un navigateur.  
+- **Le service adminer (Interface Web pour MySQL) ajoute une interface graphique pour gérer la base de données via un navigateur.**  
 ```
 adminer:
     image: adminer
@@ -194,7 +194,7 @@ ports:
     - "8081:8080"
 ```
 Mappe le port 8080 du conteneur (port par défaut d’Adminer) sur le port 8081 de la machine hôte → Accessible via http://localhost:8081.  
-````
+```
 depends_on:
     - database
 ```
@@ -208,7 +208,7 @@ Connecte Adminer au réseau symfony_network.
 .  
 .  
 
-- Le service phpmyadmin ajoute une autre interface web pour MySQL, en plus d’Adminer.  
+- **Le service phpmyadmin ajoute une autre interface web pour MySQL, en plus d’Adminer.**  
 ```
 phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -249,7 +249,7 @@ Connecté au réseau symfony_network.
 .  
 .  
 .  
-- Ce bloc définit le réseau :  
+- **Ce bloc définit le réseau :**  
 ```
 networks:
   symfony_network:
@@ -259,7 +259,7 @@ Crée un réseau bridge (symfony_network), permettant la communication entre les
 .  
 .  
 .  
-- Ce bloc définit le volumes :
+- **Ce bloc définit le volumes :**
 ```
 volumes:
   db_data:
