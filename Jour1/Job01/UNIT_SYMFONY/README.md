@@ -419,7 +419,7 @@ Ce Dockerfile utilise PHP 8.2 avec FPM (serveur PHP optimisé). Il installe curl
 -----------------------------------------------------------------------------------------------------------------------------------------------
 # Etape 4 : Installer Symfony :  
   
-- **Se positionner dans le terminal de votre IDE/éditeur de code, dans le dossier de votre projet :**
+- **1 - Se positionner dans le terminal de votre IDE/éditeur de code, dans le dossier de votre projet :**
   
 Dans le terminal de l'IDE (ici VsCode) :  
 ```
@@ -428,10 +428,25 @@ cd chemin/du/dossier
 Exemple :  
 ![Image n°8](image/8.png)  
 
-- **
+- **2 - Installer les fichiers de Symfony dans le dossier app :**  
+  
+```
+composer create-project symfony/website-skeleton app
+```
+- composer : C'est l'outil de gestion de dépendances PHP. Il permet d'installer des bibliothèques et des frameworks comme Symfony.  
+- create-project : C'est l'option de Composer qui permet de créer un nouveau projet à partir d'un package spécifique.  
+- symfony/website-skeleton : C'est le package source utilisé comme modèle pour le projet. Il contient la structure de base d'un site web Symfony avec plusieurs bundles préinstallés (Twig, Doctrine, etc.).  
+- app : C'est le nom du dossier cible où Symfony sera installé.  
 
+Résultat : 
 
+![Image n°9](image/9.png)  
+![Image n°10](image/10.png)  
 
+J'ai taper y pour Yes.  
+J'ai eu une erreur :  
 
+![Image n°11](image/11.png)  
+  
 
 
