@@ -426,27 +426,30 @@ Dans le terminal de l'IDE (ici VsCode) :
 cd chemin/du/dossier
 ```
 Exemple :  
+  
 ![Image n°8](image/8.png)  
 
 - **2 - Installer les fichiers de Symfony dans le dossier app :**  
   
 ```
-composer create-project symfony/website-skeleton app
+composer create-project symfony/skeleton:"7.2.x"  app
 ```
 - composer : C'est l'outil de gestion de dépendances PHP. Il permet d'installer des bibliothèques et des frameworks comme Symfony.  
 - create-project : C'est l'option de Composer qui permet de créer un nouveau projet à partir d'un package spécifique.  
-- symfony/website-skeleton : C'est le package source utilisé comme modèle pour le projet. Il contient la structure de base d'un site web Symfony avec plusieurs bundles préinstallés (Twig, Doctrine, etc.).  
+- symfony/website-skeleton : C'est le package source utilisé comme modèle pour le projet. Il contient la structure de base d'un site web Symfony avec plusieurs bundles préinstallés (Twig, Doctrine, etc.). 
+- "7.2.x" : Cette partie de la commande spécifie la version exacte de Symfony que vous souhaitez utiliser.   
 - app : C'est le nom du dossier cible où Symfony sera installé.  
 
 Résultat : 
-
+  
 ![Image n°9](image/9.png)  
-![Image n°10](image/10.png)  
 
-J'ai taper y pour Yes.  
-J'ai eu une erreur :  
+- Autre méthode :  
+```
 
-![Image n°11](image/11.png)  
+```
+
+ 
   
 
 
