@@ -375,6 +375,35 @@ Il fonctionne avec ton docker-compose.yml, où :
 - database stocke les données de l’application.  
   
 -----------------------------------------------------------------------------------------------------------------------------------------------
+- **5 - Création du ficher Dockerfile :**  
+  
+![Image n°7](image/7.png)  
+   
+- **6 - Explication du ficher Dockerfile :**  
+
+Ce fichier est un Dockerfile, qui sert à construire une image Docker basée sur PHP 8.2 avec FPM (FastCGI Process Manager) et Composer.  
+.  
+.  
+.  
+  
+```
+FROM php:8.2-fpm
+```
+- L'image de base est php:8.2-fpm.  
+- FPM (FastCGI Process Manager) est une version optimisée de PHP pour le traitement des requêtes web via un serveur comme Nginx ou Apache.  
+- PHP est déjà installé avec cette image, donc pas besoin de l’ajouter.   
+```
+# Installer Composer
+RUN apt-get update && apt-get install -y curl unzip git
+```
+- apt-get update : Met à jour la liste des paquets disponibles.  
+- apt-get install -y curl unzip git : Installe trois outils :  
+→ curl : pour télécharger des fichiers (nécessaire pour récupérer Composer).  
+→ unzip : pour extraire des fichiers compressés.  
+→ git : pour gérer des dépôts Git (utile pour les projets PHP).  
+Le -y signifie "répondre oui automatiquement" pour éviter de bloquer l’installation.
+
+
 
 
 
