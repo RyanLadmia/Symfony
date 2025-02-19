@@ -401,7 +401,34 @@ RUN apt-get update && apt-get install -y curl unzip git
 → curl : pour télécharger des fichiers (nécessaire pour récupérer Composer).  
 → unzip : pour extraire des fichiers compressés.  
 → git : pour gérer des dépôts Git (utile pour les projets PHP).  
-Le -y signifie "répondre oui automatiquement" pour éviter de bloquer l’installation.
+Le -y signifie "répondre oui automatiquement" pour éviter de bloquer l’installation.  
+```
+RUN curl -sS https://getcomposer.org/installer | php \
+&& mv composer.phar /usr/local/bin/composer
+```  
+- curl -sS https://getcomposer.org/installer | php :
+→ Télécharge et exécute le script d’installation de Composer depuis le site officiel.  
+→ -sS : options de curl pour ne pas afficher les erreurs mineures et garder les erreurs importantes.  
+- mv composer.phar /usr/local/bin/composer :  
+→ Déplace le fichier composer.phar (l'exécutable de Composer) dans /usr/local/bin/. 
+→ Cela permet d’exécuter composer directement dans le terminal, sans avoir à taper php composer.phar.  
+
+- **Résumé :**  
+Ce Dockerfile utilise PHP 8.2 avec FPM (serveur PHP optimisé). Il installe curl, unzip et git (nécessaires pour Composer et le développement PHP) et télécharge et installe Composer (le gestionnaire de dépendances PHP).  
+  
+-----------------------------------------------------------------------------------------------------------------------------------------------
+# Etape 4 : Installer Symfony :  
+  
+- **Se positionner dans le terminal de votre IDE/éditeur de code, dans le dossier de votre projet :**
+  
+Dans le terminal de l'IDE (ici VsCode) :  
+```
+cd chemin/du/dossier
+```
+Exemple :  
+![Image n°8](image/8.png)  
+
+- **
 
 
 
