@@ -448,6 +448,9 @@ Résultat :
   
 ![Image n°9](image/9.png)  
 
+→ 
+
+
 - Méthode n°2 :  
 ```
 composer create-project symfony/website-skeleton:"7.2.x"  app
