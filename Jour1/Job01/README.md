@@ -431,6 +431,10 @@ Exemple :
 
 - **2 - Installer les fichiers de Symfony dans le dossier app :**  
   
+Pour installer un projet symphony, il y a deux methodes.
+  
+- Methode n°1 : Symfony skeleton :
+
 ```
 composer create-project symfony/skeleton:"7.2.x"  app
 ```
@@ -444,11 +448,12 @@ Résultat :
   
 ![Image n°9](image/9.png)  
 
-- Autre méthode :  
+- Méthode n°2 :  
 ```
-
+composer create-project symfony/website-skeleton:"7.2.x"  app
 ```
-
+Cette commande ne fonctionne pas toujours selon la version de php, composer ou symfony. Privilegier la première méthode en précisant la version.  
+  
  
   
 
