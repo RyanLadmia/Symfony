@@ -7,7 +7,11 @@
 Pour vérifier que Docker est installé et configuré, ouvrir un terminal et entrer :  
 ```
 docker --version
-```  
+```
+ou  
+```
+docker -v
+```
   
 Résultat si docker est installé :  
     
@@ -17,7 +21,11 @@ Résultat si docker est installé :
 Pour vérifier que Docker Compose est installé et configurer, ouvrir un terminal et entrer :
 ```
 docker-compose --version
-```  
+```
+ou  
+```
+docker-compose -v
+```
   
 Résultat sit Docker compose est installé :  
   
@@ -29,7 +37,15 @@ Résultat sit Docker compose est installé :
 Puisque Symfony utilise Composer pour fonctionner, il faut vérifier qu'il soit bien installé et configuré :  
 ```
 composer --version
-```  
+```
+ou  
+```
+composer -v
+```
+pour vider le cache de composer :  
+```
+composer clear-cache
+```
 
 et pour le mettre a jour sous Windows :  
 ```
@@ -429,33 +445,59 @@ Exemple :
   
 ![Image n°8](image/8.png)  
 
-- **2 - Installer les fichiers de Symfony dans le dossier app :**  
-  
-Pour installer un projet symphony, il y a deux methodes.
-  
-- Methode n°1 : Symfony skeleton :
+-----------------------------------------------------------------------------------------------------------------------------------------------
 
+- **2 - Utiliser Composer pour installer les fichiers de Symfony dans le dossier app :**  
+  
+- Methode n°1 : Symfony website skeleton :  
+```
+composer create-project symfony/skeleton app
+cd app
+composer require webapp
+```
+Cette approche en deux étapes remplace l'ancien website-skeleton. Elle installe d'abord le squelette de base, puis ajoute tous les composants nécessaires pour une application web complète via la recette webapp.  
+- composer : C'est l'outil de gestion de dépendances PHP. Il permet d'installer des bibliothèques et des frameworks comme Symfony.  
+- create-project : C'est l'option de Composer qui permet de créer un nouveau projet à partir d'un package spécifique. 
+- symfony/skeleton :  C'est le package de base de Symfony. Il installe un projet minimal avec seulement le strict nécessaire pour démarrer un projet Symfony.  
+- app : C'est le nom du dossier où le projet sera créé. Composer crée le dossier et y place tous les fichiers du projet.  
+- cd app :cette commande permet de naviguer dans le dossier app que vous venez de créer.  
+- composer require webapp : Cette commande ajoute le package symfony/webapp-pack au projet. C'est un pack Symfony qui ajoute les composants essentiels pour créer une application web complète.  
+.  
+.  
+.  
+
+```
+composer create-project symfony/website-skeleton app
+```
+    
+Cette commande est DEPRECIEE, le website-skeleton n'est plus maintenu. Elle peut ne pas fonctionner et générer une erreur avec un dossier app incomplet, puisqu'elle installe une ancienne version de symfony :    
+
+![Image n°9](image/9.png)  
+.  
+.  
+.  
+
+- Methode n°2 : Symfony skeleton :
 ```
 composer create-project symfony/skeleton:"7.2.x"  app
 ```
 - composer : C'est l'outil de gestion de dépendances PHP. Il permet d'installer des bibliothèques et des frameworks comme Symfony.  
 - create-project : C'est l'option de Composer qui permet de créer un nouveau projet à partir d'un package spécifique.  
-- symfony/website-skeleton : C'est le package source utilisé comme modèle pour le projet. Il contient la structure de base d'un site web Symfony avec plusieurs bundles préinstallés (Twig, Doctrine, etc.). 
+- symfony/skeleton : C'est le package source utilisé comme modèle pour le projet. Il contient la structure de base d'un site web Symfony et le minimum de dépendance de nécessaire pour faire fonctionner le framework (pas de Twig, pas de Doctrine, pas de gestion des assets).  
 - "7.2.x" : Cette partie de la commande spécifie la version exacte de Symfony que vous souhaitez utiliser.   
 - app : C'est le nom du dossier cible où Symfony sera installé.  
 
 Résultat : 
   
-![Image n°9](image/9.png)  
+![Image n°10](image/10.png)  
 
 → 
 
+-----------------------------------------------------------------------------------------------------------------------------------------------
 
-- Méthode n°2 :  
-```
-composer create-project symfony/website-skeleton:"7.2.x"  app
-```
-Cette commande ne fonctionne pas toujours selon la version de php, composer ou symfony. Privilegier la première méthode en précisant la version.  
+- **3 - Utiliser le client Symfony pour installer les fichiers de Symfony dans le dossier app :**  
+
+
   
  
   
