@@ -576,10 +576,88 @@ DATABASE_URL="mysql://symfony:symfony@symfony_db:3306/symfony"
 - @symfony_db : c'est le nom du conteneur mySQL défini dans docker-compose.yml (c'est important).  
 - :3306 : le port standard de mySQL.  
 /symfony : symfony est le nom de la base de donnée à utiliser.  
+
+![Image n°15](image/15.png)
   
 -----------------------------------------------------------------------------------------------------------------------------------------------
 - **2 - Construire l'image :**  
 ```
 docker build -t projet-sympfony .
 ```
-Cette commande 
+Cette commande construit l'image docker.  
+Le -t sert à donner un nom (tag) à l'image docker.  
+
+Résultat :  
+  
+![Image n°14](image/14.png)
+  
+-----------------------------------------------------------------------------------------------------------------------------------------------
+- **3 - Démarrage des conteneurs :**  
+  
+Avec un fichier docker-compose.yml, la commande pour construire le volume et le lié au conteneur est :  
+```
+docker-compose up -d
+```
+Le flag `-d` lance les conteneurs en mode détaché (arrière-plan).  
+
+Pour voir les logs en cas de besoin :
+```
+# Voir tous les logs
+docker-compose logs
+
+# Suivre les logs en direct
+docker-compose logs -f
+
+# Voir les logs d'un service spécifique
+docker-compose logs nom_du_service
+```
+  
+Résultat :  
+  
+![Image n°16](image/16.png)  
+
+Résultat dans un navigateur à localhost:8080 :  
+  
+![Image n°17](image/17.png)  
+
+  
+-----------------------------------------------------------------------------------------------------------------------------------------------
+# - **4 - Création du schéma de la base de donnée :**  
+  
+# Vérifier que les conteneurs sont en cours d'exécution :  
+```
+docker ps
+```
+![Image n°18](image/18.png) 
+
+Puis entrer dans le conteneur :  
+```
+docker exec -it symfony_app bash
+``` 
+![Image n°19](image/19.png) 
+  
+Ensuite exécuter les commandes suivantes : 
+  
+- Créer la base de données :   
+```
+php bin/console doctrine:database:create
+```
+Cette commande crée la base de données définie dans votre fichier .env.  
+Vous devez l'exécuter une seule fois, sauf si vous supprimez la base de données ou changez son nom.  
+  
+- Créer les migrations :  
+```
+php bin/console make:migration
+```
+Cette commande génère un fichier de migration basé sur les entités que vous avez définies dans votre projet.  
+Vous devez l'exécuter chaque fois que vous modifiez vos entités (ajout, suppression ou modification de champs).  
+Si vous n'avez pas encore d'entités, vous n'avez pas besoin de l'exécuter.  
+  
+- Exécuter les migrations :  
+```
+php bin/console doctrine:migrations:migrate
+```
+Cette commande applique les migrations à la base de données.  
+Vous devez l'exécuter chaque fois que vous avez de nouvelles migrations à appliquer.  
+Une fois que vous avez exécuté cette commande, la structure de votre base de données sera mise à jour pour correspondre à vos entités.  
+  
