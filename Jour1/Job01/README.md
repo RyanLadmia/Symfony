@@ -13,7 +13,7 @@ ou
 docker -v
 ```
   
-Résultat si docker est installé :  
+Résultat si Docker est installé :  
     
 ![Image n°1](image/1.png)  
   
@@ -27,7 +27,7 @@ ou
 docker-compose -v
 ```
   
-Résultat sit Docker compose est installé :  
+Résultat si Docker Compose est installé :  
   
 ![Image n°2](image/2.png)  
 
@@ -42,12 +42,12 @@ ou
 ```
 composer -v
 ```
-pour vider le cache de composer :  
+Pour vider le cache de composer :  
 ```
 composer clear-cache
 ```
 
-et pour le mettre a jour sous Windows :  
+Et pour le mettre a jour sous Windows :  
 ```
 composer sefl-upgrade
 ```
@@ -361,7 +361,7 @@ location ~ \.php$ {
   
 → fastcgi_index index.php; : Définit index.php comme fichier d'entrée pour les requêtes PHP.  
   
-→ fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;  
+→ fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; :  
   
 |__→→→→→ Définit le chemin absolu du fichier PHP à exécuter.  
 |__→→→→→ $document_root est la valeur du root défini (/var/www/html/public).  
@@ -385,6 +385,7 @@ Ce fichier default.conf configure Nginx pour servir une application Symfony :
 → Il redirige toutes les requêtes vers index.php, essentiel pour Symfony.  
 → Il utilise php-fpm via le service app pour exécuter les fichiers PHP.  
 → Il protège les fichiers .htaccess contre l’accès public.  
+
 Il fonctionne avec ton docker-compose.yml, où :  
 - app exécute php-fpm.  
 - webserver (Nginx) communique avec app pour exécuter les fichiers PHP.  
@@ -460,8 +461,18 @@ Cette approche en deux étapes remplace l'ancien website-skeleton. Elle installe
 - create-project : C'est l'option de Composer qui permet de créer un nouveau projet à partir d'un package spécifique. 
 - symfony/skeleton :  C'est le package de base de Symfony. Il installe un projet minimal avec seulement le strict nécessaire pour démarrer un projet Symfony.  
 - app : C'est le nom du dossier où le projet sera créé. Composer crée le dossier et y place tous les fichiers du projet.  
-- cd app :cette commande permet de naviguer dans le dossier app que vous venez de créer.  
-- composer require webapp : Cette commande ajoute le package symfony/webapp-pack au projet. C'est un pack Symfony qui ajoute les composants essentiels pour créer une application web complète.  
+- cd app : cette commande permet de naviguer dans le dossier app que vous venez de créer.  
+- composer require webapp : Cette commande ajoute le package symfony/webapp-pack au projet. C'est un pack Symfony qui ajoute les composants essentiels pour créer une application web complète. 
+
+Lors de l'installation de Symfony avec Composer, il est courant que l'installateur pose des questions sur la configuration de la base de données et l'intégration avec Docker :
+.  
+"Do you want to configure Docker integration? (yes/no)" :  
+- Si tu réponds "yes", Symfony générera des fichiers Docker (comme un docker-compose.yml) pour lancer un environnement de développement avec des conteneurs, incluant souvent un serveur web, une base de données (MySQL ou PostgreSQL), et d'autres services nécessaires.  
+- Si tu réponds "no", tu devras configurer toi-même ton environnement de développement (serveur web, base de données, etc.).  
+.  
+Résultat :  
+
+![Image n°9](image/9.png)
 .  
 .  
 .  
@@ -470,9 +481,7 @@ Cette approche en deux étapes remplace l'ancien website-skeleton. Elle installe
 composer create-project symfony/website-skeleton app
 ```
     
-Cette commande est DEPRECIEE, le website-skeleton n'est plus maintenu. Elle peut ne pas fonctionner et générer une erreur avec un dossier app incomplet, puisqu'elle installe une ancienne version de symfony :    
-
-![Image n°9](image/9.png)  
+Cette commande est dépréciée, le website-skeleton n'est plus maintenu. Elle peut ne pas fonctionner et générer une erreur avec un dossier app incomplet, puisqu'elle installe une ancienne version de symfony.    
 .  
 .  
 .  
