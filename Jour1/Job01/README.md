@@ -579,6 +579,6 @@ DATABASE_URL="mysql://symfony:symfony@symfony_db:3306/symfony"
   
 -----------------------------------------------------------------------------------------------------------------------------------------------
 - **2 - Construire l'image :**  
-````
-
+```
+docker build -t projet-sympfony .
 ```
