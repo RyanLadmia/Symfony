@@ -582,3 +582,4 @@ DATABASE_URL="mysql://symfony:symfony@symfony_db:3306/symfony"
 ```
 docker build -t projet-sympfony .
 ```
+Cette commande
