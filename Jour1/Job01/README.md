@@ -503,9 +503,59 @@ Résultat :
 
 - **3 - Utiliser le client Symfony pour installer les fichiers de Symfony dans le dossier app :**  
 
-
+Pour installer Symfony en utilisant Symfony CLI.  
+Version complète :  
+```
+symfony new app --webapp
+```
+ou version minimale (skeleton)  
+```
+symfony new app
+```
+Ici remplacer app par le nom de votre dossier/projet.  
   
+Les avantages d'utiliser Symfony CLI :  
+
+- Installation plus rapide
+- Inclut un serveur web de développement local
+- Outils de debug et de profiling intégrés
+- Vérification automatique des prérequis système
+- Commandes pratiques comme symfony serve pour lancer le serveur
  
+ Démarrer le serveur de développement :  
+ ```
+ symfony serve
+ ```
+ Vérifier les prérequis système :  
+ ```
+ symfony check:requirements
+ ```
+ Voir la version de Symfony CLI :  
+ ```
+ symfony -V
+ ```
+Le client Symfony est particulièrement recommandé pour le développement car il offre une meilleure expérience développeur avec ses outils intégrés.  
+
+!!! Les differences principales se font avec l'intégration de webapp dans la commande !!!  
+  
+
+Comparaisons :  
+  
+Exemple :  
+- Dossier app = webapp : avec composer.  
+- Dossier app2 = skeleton minimal = avec composer.  
+- Dossier app3 = skeleton minimal = avec client Symfony CLI.  
+
+Résultats :  
+Dossier app :  
+![Image n°11](image/11.png)
+Dossier app2 :  
+![Image n°12](image/12.png)
+Dossier app3 :  
+![Image n°13](image/13.png)
+
+
+
   
 
 
