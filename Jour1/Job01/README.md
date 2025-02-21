@@ -547,13 +547,14 @@ Exemple :
 - Dossier app3 = skeleton minimal = avec client Symfony CLI.  
 
 Résultats :  
-Dossier app :  
+
+- Dossier app :  
 ![Image n°11](image/11.png)  
 
-Dossier app2 :  
+- Dossier app2 :  
 ![Image n°12](image/12.png)  
 
-Dossier app3 :  
+- Dossier app3 :  
 ![Image n°13](image/13.png) 
 
 
