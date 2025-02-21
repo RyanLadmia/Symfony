@@ -464,12 +464,12 @@ Cette approche en deux étapes remplace l'ancien website-skeleton. Elle installe
 - cd app : cette commande permet de naviguer dans le dossier app que vous venez de créer.  
 - composer require webapp : Cette commande ajoute le package symfony/webapp-pack au projet. C'est un pack Symfony qui ajoute les composants essentiels pour créer une application web complète. 
 
-Lors de l'installation de Symfony avec Composer, il est courant que l'installateur pose des questions sur la configuration de la base de données et l'intégration avec Docker :
+Lors de l'installation de Symfony avec Composer, il est courant que l'installateur pose des questions sur la configuration de la base de données et l'intégration avec Docker :  
 .  
 "Do you want to configure Docker integration? (yes/no)" :  
 - Si tu réponds "yes", Symfony générera des fichiers Docker (comme un docker-compose.yml) pour lancer un environnement de développement avec des conteneurs, incluant souvent un serveur web, une base de données (MySQL ou PostgreSQL), et d'autres services nécessaires.  
 - Si tu réponds "no", tu devras configurer toi-même ton environnement de développement (serveur web, base de données, etc.).  
-.  
+  
 Résultat :  
 
 ![Image n°9](image/9.png)
