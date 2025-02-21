@@ -465,7 +465,7 @@ Cette approche en deux étapes remplace l'ancien website-skeleton. Elle installe
 - composer require webapp : Cette commande ajoute le package symfony/webapp-pack au projet. C'est un pack Symfony qui ajoute les composants essentiels pour créer une application web complète. 
 
 Lors de l'installation de Symfony avec Composer, il est courant que l'installateur pose des questions sur la configuration de la base de données et l'intégration avec Docker :  
-.  
+  
 "Do you want to configure Docker integration? (yes/no)" :  
 - Si tu réponds "yes", Symfony générera des fichiers Docker (comme un docker-compose.yml) pour lancer un environnement de développement avec des conteneurs, incluant souvent un serveur web, une base de données (MySQL ou PostgreSQL), et d'autres services nécessaires.  
 - Si tu réponds "no", tu devras configurer toi-même ton environnement de développement (serveur web, base de données, etc.).  
@@ -488,13 +488,12 @@ Cette commande est dépréciée, le website-skeleton n'est plus maintenu. Elle p
 
 - Methode n°2 : Symfony skeleton :
 ```
-composer create-project symfony/skeleton:"7.2.x"  app
+composer create-project symfony/skeleton app2
 ```
 - composer : C'est l'outil de gestion de dépendances PHP. Il permet d'installer des bibliothèques et des frameworks comme Symfony.  
 - create-project : C'est l'option de Composer qui permet de créer un nouveau projet à partir d'un package spécifique.  
-- symfony/skeleton : C'est le package source utilisé comme modèle pour le projet. Il contient la structure de base d'un site web Symfony et le minimum de dépendance de nécessaire pour faire fonctionner le framework (pas de Twig, pas de Doctrine, pas de gestion des assets).  
-- "7.2.x" : Cette partie de la commande spécifie la version exacte de Symfony que vous souhaitez utiliser.   
-- app : C'est le nom du dossier cible où Symfony sera installé.  
+- symfony/skeleton : C'est le package source utilisé comme modèle pour le projet. Il contient la structure de base d'un site web Symfony et le minimum de dépendance de nécessaire pour faire fonctionner le framework (pas de Twig, pas de Doctrine, pas de gestion des assets).     
+- app2 : C'est le nom du dossier cible où Symfony sera installé.  
 
 Résultat : 
   
