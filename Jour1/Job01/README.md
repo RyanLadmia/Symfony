@@ -498,9 +498,7 @@ composer create-project symfony/skeleton app2
 Résultat : 
   
 ![Image n°10](image/10.png)  
-
-→ 
-
+  
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
 - **3 - Utiliser le client Symfony pour installer les fichiers de Symfony dans le dossier app :**  
