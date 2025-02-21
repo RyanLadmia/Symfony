@@ -549,16 +549,36 @@ Exemple :
 Résultats :  
 
 - Dossier app :  
+
 ![Image n°11](image/11.png)  
 
 - Dossier app2 :  
+
 ![Image n°12](image/12.png)  
 
 - Dossier app3 :  
+
 ![Image n°13](image/13.png) 
-
-
-
   
+Pour la suite nous allons garder seulement le premier dossier app.  
 
 
+-----------------------------------------------------------------------------------------------------------------------------------------------
+# Etape 5 :  Configurer la base de donnée :  
+  
+- **1 - Modifier le fichier .env de Symfony dans le répertoire app pour connecter la base de donnéee :**  
+  
+```
+DATABASE_URL="mysql://symfony:symfony@symfony_db:3306/symfony"
+```
+- mysql:// : On utilise mySQL comme moteur de base de données.  
+- symfony:symfony : symfony est le nom d'utilisateur et symfony est le mot de passe.  
+- @symfony_db : c'est le nom du conteneur mySQL défini dans docker-compose.yml (c'est important).  
+- :3306 : le port standard de mySQL.  
+/symfony : symfony est le nom de la base de donnée à utiliser.  
+  
+-----------------------------------------------------------------------------------------------------------------------------------------------
+- **2 - Construire l'image :**  
+````
+
+```
