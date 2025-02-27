@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Bienvenu à Symfony {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/home.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Bienvenu dans mon premier projet Symfony</h1>
+            <p>Ce site n'utilise pas de framework. Uniquement du Twig, PHP, Javascript et CSS vanilla.</p>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    border-style: solid;
+    border-radius: 2vw;
+    border-color: #4a84f0;
+    padding: 0vw;
+    margin: 2vw 5vw;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+}

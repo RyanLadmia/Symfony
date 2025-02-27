@@ -661,3 +661,4 @@ Cette commande applique les migrations à la base de données.
 Vous devez l'exécuter chaque fois que vous avez de nouvelles migrations à appliquer.  
 Une fois que vous avez exécuté cette commande, la structure de votre base de données sera mise à jour pour correspondre à vos entités.  
   
+Vous voici prêt à coder.
