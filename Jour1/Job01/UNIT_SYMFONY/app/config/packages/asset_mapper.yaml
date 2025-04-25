@@ -3,7 +3,13 @@ framework:
         # The paths to make available to the asset mapper.
         paths:
             - assets/
-        missing_import_mode: strict
+        excluded_patterns:
+            - '*/.*'
+            - node_modules
+        server: false
+
+        # Optional but recommended - public paths will be handled by Symfony
+        public_prefix: /assets
 
 when@prod:
     framework:

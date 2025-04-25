@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/admin.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>Espace Administration</h1>
+            <p class="admin-welcome">Bienvenue, {{ app.user.username }}</p>
+            <span class="admin-role">ADMIN</span>
+        </div>
+        
+        <div class="admin-content">
+            <p>Vous êtes connecté en tant qu'administrateur. Vous avez accès à toutes les fonctionnalités du site.</p>
+            
+            <h2>Fonctionnalités disponibles :</h2>
+            <ul>
+                <li>Gestion des utilisateurs</li>
+                <li>Configuration du site</li>
+                <li>Statistiques et rapports</li>
+                <li>Maintenance du système</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %} 

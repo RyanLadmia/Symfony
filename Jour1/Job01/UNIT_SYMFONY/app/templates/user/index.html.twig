@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Utilisateur{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/user.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="user-container">
+        <div class="user-header">
+            <h1>Espace Utilisateur</h1>
+            <p class="user-welcome">Bienvenue, {{ app.user.username }}</p>
+            <span class="user-role">UTILISATEUR</span>
+        </div>
+        
+        <div class="user-content">
+            <p>Vous êtes connecté en tant qu'utilisateur. Voici ce que vous pouvez faire :</p>
+            
+            <h2>Fonctionnalités disponibles :</h2>
+            <ul>
+                <li>Modifier votre profil</li>
+                <li>Consulter l'historique de vos activités</li>
+                <li>Accéder aux ressources utilisateur</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %} 

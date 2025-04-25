@@ -1,0 +1,29 @@
+.user-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.user-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.user-welcome {
+    font-size: 24px;
+    color: #333;
+}
+
+.user-role {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 10px;
+} 

@@ -1,14 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Bienvenu à Symfony {% endblock %}
+{% block title %}Accueil - MySite{% endblock %}
 
 {% block stylesheets %}
+    {{ parent() }}
     <link rel="stylesheet" href="{{ asset('styles/home.css') }}">
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1>Bienvenu dans mon premier projet Symfony</h1>
-            <p>Ce site n'utilise pas de framework. Uniquement du Twig, PHP, Javascript et CSS vanilla.</p>
-    </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bienvenue sur MySite</h1>
+            <p>Une plateforme moderne et performante développée avec Symfony pour répondre à tous vos besoins.</p>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="cta-container">
+            <h2>Prêt à commencer ?</h2>
+            <p>Connectez-vous maintenant pour profiter de toutes les fonctionnalités de notre plateforme.</p>
+            <a href="{{ path('app_login') }}" class="cta-button">Se connecter</a>
+        </div>
+    </section>
 {% endblock %}

@@ -659,6 +659,17 @@ php bin/console doctrine:migrations:migrate
 ```
 Cette commande applique les migrations à la base de données.  
 Vous devez l'exécuter chaque fois que vous avez de nouvelles migrations à appliquer.  
-Une fois que vous avez exécuté cette commande, la structure de votre base de données sera mise à jour pour correspondre à vos entités.  
+Une fois que vous avez exécuté cette commande, la structure de votre base de données sera mise à jour pour correspondre à celle de vos entités.  
   
 Vous voici prêt à coder.
+
+
+Ajout des fixtures dans la base de donnée pour la connexion puisque la consigne ne précise pas de faire l'inscription XD : 
+  
+admin@example.com  
+admin123
+
+user@example.com  
+user123
+
+Brava d'avoir lu ce README jusqu'au bout !

@@ -2,33 +2,53 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Welcome Symfony !{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        
         <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/base.css') }}">
         
         {% block stylesheets %}
         {% endblock %}
 
         {% block javascripts %}
         {% endblock %}
-
     </head>
     <body>
-        <div>
-            <header>
-                <nav class="navbar">
-                    <ul>
-                        <li><a href="{{ url('home') }}">Accueil</a></li>
-                        <li><a href="">Connexion</a></li>
-                        <li><a href="">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
+        <div class="header">
+            <nav class="navbar">
+                <a href="{{ path('home') }}" class="navbar-brand">MySite</a>
+                
+                <ul class="navbar-menu">
+                    <li><a href="{{ path('home') }}">Accueil</a></li>
+                </ul>
+                
+                <div class="auth-buttons">
+                    {% if app.user %}
+                        <div class="dropdown">
+                            <div class="user-info">
+                                <div class="user-avatar">
+                                    {{ app.user.username|slice(0, 1)|upper }}
+                                </div>
+                                <span class="user-name">{{ app.user.username }}</span>
+                                <span>▼</span>
+                            </div>
+                            <div class="dropdown-content">
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('app_admin') }}" class="dropdown-item">Administration</a>
+                                {% endif %}
+                                <a href="{{ path('app_user') }}" class="dropdown-item">Mon espace</a>
+                                <a href="{{ path('app_logout') }}" class="dropdown-item">Déconnexion</a>
+                            </div>
+                        </div>
+                    {% else %}
+                        <a href="{{ path('app_login') }}" class="login-btn">Connexion</a>
+                    {% endif %}
+                </div>
+            </nav>
         </div>
 
-         {% block body %}
-
-        {% endblock %}
-
+        {% block body %}{% endblock %}
     </body>
 </html>
